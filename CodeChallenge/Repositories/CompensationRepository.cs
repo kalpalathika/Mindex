@@ -23,20 +23,19 @@ namespace challenge.Repositories
             return compensation;
         }
 
+        /// <summary>
+        /// Retrieves the latest compensation record for a specified employee based on the effective date.
+        /// </summary>
+        /// <param name="employeeId">The unique identifier of the employee.</param>
+        /// <returns>The most recent <see cref="Compensation"/> record, or null if none exist.</returns>
+
        public async Task<Compensation> GetByEmployeeIdAsync(string employeeId)
         {
             var compensation = await _employeeContext.Compensations
-                .Include(c => c.Employee)
-                .SingleOrDefaultAsync(c => c.Employee.EmployeeId == employeeId);
-
-            if (compensation != null)
-            {
-                Console.WriteLine($"Compensation for Employee {compensation.Employee.EmployeeId} retrieved successfully.");
-            }
-            else
-            {
-                Console.WriteLine($"No compensation found for Employee with ID {employeeId}.");
-            }
+                    .Include(c => c.Employee)
+                    .Where(c => c.Employee.EmployeeId == employeeId)
+                    .OrderByDescending(c => c.EffectiveDate)
+                    .FirstOrDefaultAsync();
 
             return compensation;
         }

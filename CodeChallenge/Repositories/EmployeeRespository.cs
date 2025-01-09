@@ -45,7 +45,6 @@ namespace CodeChallenge.Repositories
                         .Collection(e => e.DirectReports)
                         .LoadAsync();
 
-                    Console.WriteLine($"Employee {employee.EmployeeId} has {employee.DirectReports.Count} direct reports.");
                 }
 
                 return employee;
