@@ -201,7 +201,7 @@ namespace CodeCodeChallenge.Tests.Integration
             
             // Assert that the number of reports is correct
             Assert.AreEqual(expectedResponse.NumberOfReports, report.NumberOfReports);
-    }
+        }
 
 
         [TestMethod]
