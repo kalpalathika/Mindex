@@ -16,7 +16,7 @@ I set up a separate repository and controller for `Compensation` to handle its s
 - **Usability**: Clear and straightforward REST API endpoints make it easy to test and integrate with various front-end applications.
 
 ## Challenges
-- **Asynchronous Operations and Lazy Loading**: The default lazy loading behavior in the application posed challenges, especially when using recursion to calculate the total reports for an employee. The asynchronous nature of the operations meant that data needed during recursion wasn't readily available when expected. To overcome this, I switched to explicit loading of related data to ensure all necessary information was accessible during the recursive operations. This adjustment was crucial for accurately computing hierarchical data structures like reporting lines.
+- **Asynchronous Operations and Lazy Loading**: The default lazy loading posed challenges, particularly with recursive operations needed to compute total reports for an employee. Asynchronous operations delayed data availability, impacting accuracy. I transitioned to explicit loading to ensure timely access to necessary data, improving the precision of reporting structures.
 
 ## Future Scope
 - **Database Migration**: Transition to a persistent storage solution like SQL Server or MongoDB.
@@ -45,13 +45,13 @@ Each `Employee` object follows the specified JSON schema, and compensation detai
 ## Testing Structure
 
 ### Reporting Structure Tests
-In the tests for `ReportingStructure`, I verify the accurate retrieval of reporting hierarchies within the organization. These tests ensure that the API correctly computes and returns the number of direct and indirect reports for specified employees. I use assertions to check both successful retrievals (`Returns_Ok`) and the handling of invalid requests (`Returns_NotFound`), ensuring correctness of the endpoint under various conditions.
+- **Hierarchical Accuracy**: Tests ensure the API accurately computes and returns the total number of direct reports for specified employees, confirming correct responses (`Returns_Ok`).
+- **Error Handling**: Assesses the system's response to invalid employee requests, verifying proper error management with a `NotFound` status.
 
 ### Compensation Controller Tests
-For the `CompensationController`, I have implemented tests to validate both the creation and retrieval processes of compensation records. My tests check:
-- The successful creation of compensation entries, asserting that all fields (e.g., salary, effective date) are correctly recorded and the response status is as expected (`Returns_Created`).
-- Proper retrieval of existing compensation records by employee ID, ensuring that the response includes all relevant compensation details and is accurate (`Returns_Ok`).
-- Appropriate handling of requests for non-existent employee IDs, verifying that the system correctly returns a `NotFound` status in such cases.
+- **Creation Validation**: Tests confirm the successful creation of compensation entries, ensuring all details like salary and effective date are correctly recorded (`Returns_Created`).
+- **Retrieval Accuracy**: Ensures accurate retrieval of compensation records by employee ID, with complete detail verification (`Returns_Ok`).
+- **Error Handling**: Verifies the system's response to invalid employee IDs with a `NotFound` status, demonstrating robust error management.
 
 
 # About Me
