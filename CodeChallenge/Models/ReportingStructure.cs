@@ -1,5 +1,8 @@
 using CodeChallenge.Models;
 
+/// <summary>
+/// Represents the reporting structure for an employee.
+/// </summary>
 public class ReportingStructure {
     public Employee Employee {get;set;}
     public int NumberOfReports {get;set;}

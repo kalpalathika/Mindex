@@ -1,5 +1,8 @@
 using System;
 
+/// <summary>
+/// Represents the compensation details for an employee.
+/// </summary>
 namespace CodeChallenge.Models
 {
     public class Compensation

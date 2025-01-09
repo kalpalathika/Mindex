@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace CodeChallenge.Models
 {
+    /// <summary>
+    /// Represents an employee within the organization.
+    /// </summary>
     public class Employee
     {
         public String EmployeeId { get; set; }

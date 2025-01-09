@@ -179,10 +179,8 @@ namespace CodeCodeChallenge.Tests.Integration
             var responseContent = await response.Content.ReadAsStringAsync();
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
-            // Parse the response content into a JObject
             var jsonResponse = JObject.Parse(responseContent);
 
-            // Extract the 'result' field and deserialize it into the ReportingStructure class
             var report = jsonResponse["result"].ToObject<ReportingStructure>();
             
             Assert.IsNotNull(report);
