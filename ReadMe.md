@@ -6,11 +6,10 @@ To run the project, execute `dotnet run` on the command line or through Visual S
 ## Architectural Decisions
 
 ### Reporting Structure in Employee Controller
-The `ReportingStructure` has been integrated within the `EmployeeController` to maintain a cohesive architectural design. This decision was driven by the fact that the reporting structure is fundamentally an extension of the employee data. It leverages existing employee information to compute and deliver insights into hierarchical relationships and reporting lines directly related to employee entities. By keeping this functionality within the `EmployeeController`, we can ensure that all employee-related operations are centralized, enhancing the maintainability and logical grouping of our APIs.
+I placed the `ReportingStructure` within the `EmployeeController` because it's closely tied to employee details. This integration streamlines our API by grouping related functionalities, making it easier to manage and maintain the system as it grows.
 
 ### Separate Repository and Controller for Compensation
-The `Compensation` functionality is managed through a distinct repository and controller to cater specifically to its unique operational requirements. This separation ensures that compensation management — involving sensitive financial transactions — remains isolated from general employee data management. This structure not only enhances security but also adheres to the Single Responsibility Principle, allowing each system component to evolve independently and ensuring scalability and ease of maintenance.
-
+I set up a separate repository and controller for `Compensation` to handle its specific needs, especially since it deals with sensitive financial information. This separation helps secure and manage compensation data more effectively, aligning with the Single Responsibility Principle for better scalability and easier updates.
 
 ## Observations
 - **Performance**: The in-memory database provides fast access but is limited by its non-persistent nature.
@@ -55,7 +54,7 @@ For the `CompensationController`, I have implemented tests to validate both the 
 - Appropriate handling of requests for non-existent employee IDs, verifying that the system correctly returns a `NotFound` status in such cases.
 
 
-# About Me - Kalpalathika Ramanujam
+# About Me
 I am Kalpalathika Ramanujam, a dedicated Software Engineer with over three years of industry experience specializing in developing scalable full-stack applications using C#, .NET, and Angular. Currently, I am pursuing my Master’s in Computer Science at Rochester Institue of Technology. As a skilled problem solver, I am eager to apply my technical expertise and innovative approach in a dynamic new role.
 
 
