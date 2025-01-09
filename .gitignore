@@ -1,0 +1,25 @@
+# Already existing entries
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.log
+
+# Test results
+**/TestResults/
+
+# VS Code settings
+.vscode/
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Temporary files
+*.tmp
+*.temp
+
+# Logs and crash reports
+crashreports/
